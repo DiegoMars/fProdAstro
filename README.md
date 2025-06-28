@@ -1,3 +1,3 @@
 # fProdAstro
-This is an attempted conversion to Astro from the [fProd](https://github.com/DiegoMars/fProd)
+This is a conversion to Astro from the [fProd](https://github.com/DiegoMars/fProd)
 repository

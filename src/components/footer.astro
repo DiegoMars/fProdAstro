@@ -1,0 +1,190 @@
+---
+
+---
+<footer>
+  <div id="footerEverything">
+    <div id="footerName">
+      <div class="name">
+        <h4>Farisa Morales</h4>
+        <a href="mailto:farisa.morales@gmail.com" class="socials">
+          <img src="imgs/icons/envelope.svg" alt="mail logo">
+        </a>
+      </div>
+      <p>
+        Scientist · Astronomer · Program Manager · Dean · Instructor
+      </p>
+    </div>
+    <div id="footerIcons">
+      <div id="footerSocials">
+        <h5>Socials</h5>
+        <div class="socials">
+          <a href="https://www.facebook.com/farisa.morales" target="_blank">
+            <img src="imgs/icons/facebook.svg" alt="facebook logo">
+          </a>
+          <a href="https://www.x.com/FarisaMorales" target="_blank">
+            <img src="imgs/icons/x.svg" alt="x logo">
+          </a>
+          <a href="https://www.linkedin.com/in/farisamorales/" target="_blank">
+            <img src="imgs/icons/linkedin.svg" alt="linkedIn logo">
+          </a>
+          <a href="http://www.youtube.com/channel/UC-ml_bFgAHR7wXwsteE-A6g" target="_blank">
+            <img src="imgs/icons/logo-youtube.svg" alt="youtube logo">
+          </a>
+        </div>
+      </div>
+      <div id="footersProf">
+        <h5>Research Profiles</h5>
+        <div class="socials">
+          <a href="https://science.jpl.nasa.gov/people/morales/" class="prof" target="_blank">
+            <img src="imgs/icons/nasa-logo.svg" alt="NASA logo">
+            <!-- <p>JPL</p> -->
+          </a>
+          <a href="https://orcid.org/0000-0001-9414-3851" class="prof" target="-blank">
+            <img src="imgs/icons/orcid.org.svg" alt="ORCID logo">
+            <!-- <p>ORCID</p> -->
+          </a>
+          <a href="https://ui.adsabs.harvard.edu/search/p_=0&q=orcid%3A0000-0001-9415-3851&sort=date%20desc%2C%20bibcode%20desc"
+            class="prof" target="-blank">
+            <img src="imgs/icons/ads.svg" alt="ADS logo">
+            <!-- <p>ADS</p> -->
+          </a>
+          <a href="https://www.researchgate.net/profile/Farisa-Morales" class="prof" target="-blank">
+            <img src="imgs/icons/logo_ResearchGate.svg" alt="Research Gate logo">
+            <!-- <p>Research Gate</p> -->
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="copyright">Copyright © 2025 Diego Martinez</p>
+</footer>
+
+<style>
+footer {
+  padding: 1rem;
+  background-color: var(--accent);
+  color: var(--text);
+}
+#footerEverything {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+#footerName {
+  margin: auto 0;
+}
+#footerName > p {
+  margin: 0;
+}
+.name {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+.name img {
+  padding: 0.25rem 0 0 0.5rem;
+}
+#footerIcons {
+  padding-top: 0.5rem;
+}
+#footerSocials {
+  padding-top: 0.5rem;
+}
+#footersProf{
+  padding-top: 0.5rem;
+}
+.socials {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.socials img {
+  height: 23px;
+  display: flex;
+  align-items: center;
+  padding-right: 0.25rem;
+}
+.socials a {
+  padding-right: 0.75rem;
+  padding: 0.5rem 0.75rem 0.5rem 0;
+}
+.prof {
+  display: flex;
+  align-items: center;
+  color: var(--text);
+  text-decoration: none;
+}
+.prof > p{
+  margin: 0px;
+}
+.copyright {
+  margin: 0;
+  color: var(--text-500);
+  text-align: center;
+}
+@keyframes flash {
+  0% { background-color: transparent; }
+  30% { background-color: #ffffff1a; }
+  60% { background-color: #ffffff33; }
+  100% { background-color: transparent; }
+}
+.flash {
+  animation: flash 0.8s ease-in-out;
+}
+
+/* Media Queries */
+@media screen and (min-width: 576px){ /* At sm breakpoint, apply styles */
+  #footerEverything {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* align-items: flex-start; */
+  }
+  #footerName {
+    flex: 1 1 250px;
+  }
+  #footerIcons {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 400px;
+  }
+  #footerSocials,
+  #footersProf {
+    flex: 1 1 auto;
+  }
+}
+@media screen and (min-width: 780px){ /* At md breakpoint, apply styles */
+  #footerEverything {
+    gap: 2rem;
+  }
+  #footerIcons {
+    gap: 2rem;
+  }
+}
+@media screen and (min-width: 1200px){ /* At xl breakpoint, apply styles */
+  footer {
+    padding: 2rem;
+  }
+  #footerEverything {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  #footerIcons {
+    flex-direction: row;
+    padding-top: 0;
+  }
+  #footerSocials {
+    padding-top: 0;
+    margin: auto 0;
+  }
+  #footersProf {
+    padding: 0;
+  }
+  #footerSocials,
+  #footersProf {
+    flex: 1 1 250px;
+  }
+}
+</style>
