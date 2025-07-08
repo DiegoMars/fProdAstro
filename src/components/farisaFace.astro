@@ -1,0 +1,26 @@
+---
+import { getImage } from 'astro:assets';
+import Stars from '../assets/imgs/staryBackground.jpg'
+
+const stars = await getImage({ src: Stars })
+const starsUrl = 'url(${stars.src})'
+---
+<section id="Farisa">
+</section>
+
+<style define:vars={{ starsUrl }}>
+#Farisa {
+  height: 300px;
+  background-color: #ff00ff;
+}
+
+@media screen and (min-width: 576px){ /* At sm breakpoint, apply styles */
+
+}
+@media screen and (min-width: 780px){ /* At md breakpoint, apply styles */
+  background-image: var(--starsUrl);
+}
+@media screen and (min-width: 1200px){ /* At xl breakpoint, apply styles */
+
+}
+</style>
