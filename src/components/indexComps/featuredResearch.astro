@@ -1,0 +1,175 @@
+---
+import { Image } from "astro:assets";
+
+import CardPic from "../../assets/imgs/pp.png"
+---
+<section class="fFeatRes">
+  <h3>Featured Research</h3>
+  <div class="carousel">
+    <div class="card">
+      <div class="img">
+        <Image 
+          src={CardPic}
+          alt="Profile Picture"
+        />
+      </div>
+      <div class="description">
+        <div class="title">
+          <h5>Lorem ipsum dolor sit amet.</h5>
+        </div>
+        <div class="subtitle">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit quisque
+            faucibus ex sapien vitae pellentesque sem placerat in id cursus mi.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="img">
+        <Image 
+          src={CardPic}
+          alt="Profile Picture"
+        />
+      </div>
+      <div class="description">
+        <div class="title">
+          <h5>Lorem ipsum dolor sit amet.</h5>
+        </div>
+        <div class="subtitle">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit quisque
+            faucibus ex sapien vitae pellentesque sem placerat in id cursus mi.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="img">
+        <Image 
+          src={CardPic}
+          alt="Profile Picture"
+        />
+      </div>
+      <div class="description">
+        <div class="title">
+          <h5>Lorem ipsum dolor sit amet.</h5>
+        </div>
+        <div class="subtitle">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit quisque
+            faucibus ex sapien vitae pellentesque sem placerat in id cursus mi.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="img">
+        <Image 
+          src={CardPic}
+          alt="Profile Picture"
+        />
+      </div>
+      <div class="description">
+        <div class="title">
+          <h5>Lorem ipsum dolor sit amet.</h5>
+        </div>
+        <div class="subtitle">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit quisque
+            faucibus ex sapien vitae pellentesque sem placerat in id cursus mi.
+          </p>
+        </div>
+      </div>
+    </div>
+    <a class="more" href="/farisaR">
+      <img src="imgs/icons/arrow.svg">
+      <h5>See more</h5>
+    </a>
+  </div>
+</section>
+
+<style>
+.fFeatRes {
+  background-color: var(--accent);
+  padding: 1.5rem;
+}
+
+.fFeatRes {
+  color: var(--text);
+  text-align: center;
+}
+
+.carousel  {
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-evenly;
+  overflow: auto;
+  gap:2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 250px;
+  padding: 1rem;
+  background-color: var(--secondary);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.img > img {
+  width: 100%;
+  height: auto;
+  width: 250px;
+  border-radius: 10px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 250px;
+  margin: 0 auto;
+}
+
+.title {
+  color: var(--primary);
+}
+
+.subtitle > p{
+  margin: 0;
+}
+
+.more {
+  margin:auto 0;
+  text-decoration: none;
+  color: var(--text);
+  width: 101px;
+  padding: 1rem;
+  background-color: var(--background);
+  border-radius: 1rem;
+  transition: 0.3s;
+}
+
+.more:hover {
+  background-color: var(--background-950);
+  color: var(--primary);
+}
+
+.more > img {
+  width: 70px;
+  padding-bottom: 0.5rem;
+}
+
+/* @media screen and (min-width: 576px){ /* At sm breakpoint, apply styles */ */
+
+/* } */
+/* @media screen and (min-width: 780px){ /* At md breakpoint, apply styles */ */
+
+/* } */
+/* @media screen and (min-width: 1200px){ /* At xl breakpoint, apply styles */ */
+
+/* } */
+</style>
