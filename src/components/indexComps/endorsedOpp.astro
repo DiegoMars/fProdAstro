@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 
 const Opps = await getCollection('opportunities');
-console.log(Opps);
 ---
 <section class="endorsedOpp">
   <h3>Endorsed Opportunities</h3>
@@ -73,6 +72,7 @@ console.log(Opps);
 
 .main > img {
   width: 33%;
+  max-height: 350px;
 }
 
 .description {

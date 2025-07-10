@@ -30,7 +30,7 @@ const shownImages = Object.values(images).slice(0, 5);
 
 <style>
 .gPreview {
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
 .gPreview > h3 {
@@ -77,13 +77,16 @@ const shownImages = Object.values(images).slice(0, 5);
   padding-bottom: 0.5rem;
 }
 
-/* @media screen and (min-width: 576px){ /* At sm breakpoint, apply styles */ */
+/* @media screen and (min-width: 576px){ /* At sm breakpoint, apply styles */
 
 /* } */
-/* @media screen and (min-width: 780px){ /* At md breakpoint, apply styles */ */
+/* @media screen and (min-width: 780px){ /* At md breakpoint, apply styles */
 
 /* } */
-/* @media screen and (min-width: 1200px){ /* At xl breakpoint, apply styles */ */
-
-/* } */
+@media screen and (min-width: 1200px){ /* At xl breakpoint, apply styles */
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-auto-rows: 300px;
+  }
+}
 </style>
