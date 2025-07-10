@@ -1,0 +1,115 @@
+---
+import { getCollection } from 'astro:content';
+
+const Opps = await getCollection('opportunities');
+console.log(Opps);
+---
+<section class="endorsedOpp">
+  <h3>Endorsed Opportunities</h3>
+  <div class="opps">
+    {Opps.map(Opps => (
+      <div class="card">
+        <div class="title">
+          <h4>{Opps.data.title}</h4>
+          <h5>{Opps.data.company}</h5>
+        </div>
+        <div class="main">
+          <img src={Opps.data.logo.url} alt={Opps.data.logo.alt} >
+          <div class="description">
+            <p class="text">{Opps.body}</p>
+            <p class="deadline"><b>Deadline: </b>{Opps.data.deadline}</p>
+            <a href={Opps.data.link} target="_blank">
+              <h5>See opportunity</h5>
+            </a>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+<section>
+
+<style>
+
+.endorsedOpp {
+  background-color: var(--accent);
+  color: var(--text);
+  text-align: center;
+  padding: 2rem;
+}
+
+.opps {
+  padding-top: 1.5rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secondary);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.title > h4 {
+  margin: auto 0;
+  color: var(--primary);
+}
+
+.title > h5 {
+  margin-top: 6px;
+}
+
+.main {
+  display: flex;
+  background-color: var(--background);
+  padding: 1.5rem;
+}
+
+.main > img {
+  width: 33%;
+}
+
+.description {
+  width: 66%;
+  margin: auto 0;
+}
+
+.description > p{
+  margin: 0.75rem;
+}
+
+.description > a {
+  text-decoration: none;
+}
+
+.description > a > h5{
+  justify-self: center;
+  width: 80%;
+  padding: 1rem;
+  color: var(--text);
+  border-radius: 1rem;
+  background-color: var(--accent);
+  transition: 0.3s;
+}
+
+.description > a > h5:hover {
+  background-color: var(--accent-800);
+  color: var(--primary);
+}
+
+/* @media screen and (min-width: 576px){ /* At sm breakpoint, apply styles */ */
+
+/* } */
+/* @media screen and (min-width: 780px){ /* At md breakpoint, apply styles */ */
+
+/* } */
+/* @media screen and (min-width: 1200px){ /* At xl breakpoint, apply styles */ */
+
+/* } */
+</style>
