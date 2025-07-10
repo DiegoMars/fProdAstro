@@ -5,7 +5,6 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../../assets/imgs/g
   eager: true,
   import: 'default',
 });
-console.log(images);
 
 // Make into array, then take the couple images
 const shownImages = Object.values(images).slice(0, 5);
