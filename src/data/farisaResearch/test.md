@@ -1,5 +1,5 @@
 ---
-title: Herschel-resolved Outer Belts of Two-belt Debris Disks around A-type Stars: HD 70313, HD 71722, HD 159492, and F-type: HD 104860
+title: "Herschel-resolved Outer Belts of Two-belt Debris Disks around A-type Stars: HD 70313, HD 71722, HD 159492, and F-type: HD 104860"
 publicated: October 2013
 journal: The Astrophysical Journal
 picture:

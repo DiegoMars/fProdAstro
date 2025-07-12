@@ -12,16 +12,16 @@ console.log(FResearch);
     {FResearch.map(FResearch => (
       <div class="card">
         <div class="img">
-          <Image 
+          <img
             src={FResearch.data.picture.url}
-            alt={FResearch.data.picutre.alt}
+            alt={FResearch.data.picture.alt}
           />
         </div>
         <div class="description">
           <div class="title">
             <h5>{FResearch.data.title}</h5>
           </div>
-          <div class="subtitle">
+          <div class="abstract">
             <p>
               {FResearch.body}
             </p>
@@ -56,7 +56,7 @@ console.log(FResearch);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  width: 250px;
+  width: 400px;
   padding: 1rem;
   background-color: var(--secondary);
   border-radius: 10px;
@@ -66,7 +66,7 @@ console.log(FResearch);
 .img > img {
   width: 100%;
   height: auto;
-  width: 250px;
+  max-width: 250px;
   border-radius: 10px;
 }
 
@@ -74,7 +74,7 @@ console.log(FResearch);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  width: 250px;
+  width: 400px;
   margin: 0 auto;
 }
 
@@ -82,8 +82,12 @@ console.log(FResearch);
   color: var(--primary);
 }
 
-.subtitle > p{
+.abstract > p{
   margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 8; /* Change to 2, 3, etc. for line count */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .more {

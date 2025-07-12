@@ -28,4 +28,4 @@ const farisaResearch = defineCollection({
   }),
 });
 
-export const collections = { opportunities };
+export const collections = { opportunities, farisaResearch };
