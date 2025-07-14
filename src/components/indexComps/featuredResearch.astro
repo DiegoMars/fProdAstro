@@ -1,14 +1,14 @@
 ---
-import { Image } from "astro:assets";
 import { getCollection } from 'astro:content';
-import CardPic from "../../assets/imgs/pp.png"
-
 const FResearch = await getCollection('farisaResearch');
+
+//shown research cards. Should work on ordering these by date in the future
+const shownResearch = Object.values(FResearch).slice(0,3);
 ---
 <section class="fFeatRes">
   <h3>Featured Research</h3>
   <div class="carousel">
-    {FResearch.map(FResearch => (
+    {shownResearch.map(FResearch => (
       <div class="card">
         <div class="img">
           <img
@@ -45,16 +45,29 @@ const FResearch = await getCollection('farisaResearch');
 
 .carousel  {
   padding-top: 1.5rem;
+  padding-bottom: 1rem; /* Adds breathing room above scrollbar */
   display: flex;
   justify-content: space-evenly;
   overflow: auto;
   gap:2rem;
 }
 
+.carousel::-webkit-scrollbar {
+  background-color: var(--accent);
+  padding: 1rem 0;
+  height: 1rem;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 1rem;
+}
+
 .card {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  justify-content: space-evenly;
   width: 400px;
   padding: 1rem;
   background-color: var(--secondary);
@@ -79,6 +92,13 @@ const FResearch = await getCollection('farisaResearch');
 
 .title {
   color: var(--primary);
+}
+
+.title > h5 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .abstract > p{
