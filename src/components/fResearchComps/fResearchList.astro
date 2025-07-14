@@ -1,0 +1,77 @@
+---
+import { getCollection } from 'astro:content';
+const FResearch = await getCollection('farisaResearch');
+
+// Convert date strings to real Date objects
+const sortedArticles = FResearch
+  .map((a) => ({
+    ...a,
+    dateObj: new Date(a.data.publicated),
+    url: "https://doi.org/" + a.data.doi,
+  }))
+
+// Group by year
+const articlesByYear: Record<string, typeof sortedArticles> = {}; // Makes an object
+for (const article of sortedArticles) {
+  const year = article.dateObj.getFullYear().toString(); // Grabs year
+  if (!articlesByYear[year]) articlesByYear[year] = []; // If year hasn't been recorded
+                                                        // make new year
+  articlesByYear[year].push(article); // adds article to that year
+}
+---
+<section class="list">
+  {Object.entries(articlesByYear)
+    .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA)) // descending
+    .map(([year, articles]) => (
+    <div class="year-group">
+      <h4>{year}</h4>
+      <div class="article">
+        {articles.map((article) => (
+          <h5>{article.data.title}</h5>
+          <p set:html={
+            article.data.authors.replace(
+              /\b(Farisa(?:\s+Y\.?)?|F(?:\.?\s*)Y\.?)\s+Morales\b/gi,
+              '<strong style="color: var(--primary)">$&</strong>'
+            )
+          }></p>
+          <p>DOI: <a href={article.url} target="_blank">{article.data.doi}</a></p>
+        ))}
+      </div>
+    </div>
+  ))}
+</section>
+
+<style>
+.list {
+  background-color: var(--background);
+  padding: 2rem;
+}
+
+.year-group {
+  border-top: 1px solid var(--primary);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+.year-group > h4 {
+  color: var(--primary);
+  width: 25%;
+}
+
+.article {
+  width: 75%;
+  padding-bottom: 2rem;
+}
+.article > h5 {
+  color: var(--text);
+}
+.article > p {
+  color: var(--text);
+}
+.article a:link {
+  color: var(--primary)
+}
+.article a:visited {
+  color: var(--primary-700)
+}
+</style>

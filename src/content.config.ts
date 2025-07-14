@@ -19,12 +19,14 @@ const farisaResearch = defineCollection({
   loader: glob({ pattern: "*.md", base: "src/data/farisaResearch" }),
   schema: z.object({
     title: z.string(),
+    authors: z.string(),
     publicated: z.string(),
     journal: z.string(),
     picture: z.object({
       url: z.string(),
       alt: z.string(),
     }),
+    doi: z.string(),
   }),
 });
 
