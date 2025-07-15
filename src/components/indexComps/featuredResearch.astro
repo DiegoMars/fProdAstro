@@ -3,13 +3,32 @@ import { getCollection } from 'astro:content';
 const FResearch = await getCollection('farisaResearch');
 
 //shown research cards. Should work on ordering these by date in the future
-const shownResearch = Object.values(FResearch).slice(0,3);
+// const shownResearch = Object.values(FResearch).slice(0,3);
+// const shownResearch = FResearch;
+const feature = 
+[
+  "10.3847/1538-4357/ad5672",
+  "10.3847/0004-637X/831/1/97",
+  "10.1088/0004-637X/757/1/7",
+  "10.1088/2041-8205/730/2/L29",
+  "10.1088/0004-637X/699/2/1067",
+  "10.3847/1538-4365/abea20"
+];
+
+const shownResearch = FResearch
+  .filter((article) => feature.includes(article.data.doi))  // Add to list if doi is in featured
+  .map((article) => ({
+    ...article,
+    dateObj: new Date(article.data.publicated),
+    url: "/farisaR#" + article.data.doi.replaceAll(/[^a-zA-Z0-9_-]/g, "-"),
+  }))                                                         // Add url and date object
+  .sort((a, b) => b.dateObj.getTime() - a.dateObj.getTime()); // Newest first
 ---
 <section class="fFeatRes">
   <h3>Featured Research</h3>
   <div class="carousel">
     {shownResearch.map(FResearch => (
-      <div class="card">
+      <a class="card" href={FResearch.url}>
         <div class="img">
           <img
             src={FResearch.data.picture.url}
@@ -26,7 +45,7 @@ const shownResearch = Object.values(FResearch).slice(0,3);
             </p>
           </div>
         </div>
-      </div>
+      </a>
     ))}
     <a class="more" href="/farisaR">
       <img src="imgs/icons/arrow.svg">
@@ -64,6 +83,7 @@ const shownResearch = Object.values(FResearch).slice(0,3);
 }
 
 .card {
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -102,6 +122,7 @@ const shownResearch = Object.values(FResearch).slice(0,3);
 }
 
 .abstract > p{
+  color: var(--text);
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 8; /* Change to 2, 3, etc. for line count */
@@ -130,13 +151,18 @@ const shownResearch = Object.values(FResearch).slice(0,3);
   padding-bottom: 0.5rem;
 }
 
-/* @media screen and (min-width: 576px){ /* At sm breakpoint, apply styles */ */
+/* @media screen and (min-width: 576px){ /* At sm breakpoint, apply styles */
 
 /* } */
-/* @media screen and (min-width: 780px){ /* At md breakpoint, apply styles */ */
+/* @media screen and (min-width: 780px){ /* At md breakpoint, apply styles */
 
 /* } */
-/* @media screen and (min-width: 1200px){ /* At xl breakpoint, apply styles */ */
-
-/* } */
+@media screen and (min-width: 1200px){
+  .img > img {
+    width: 100%;
+    height: auto;
+    max-height: 210px;
+    border-radius: 10px;
+  }
+}
 </style>

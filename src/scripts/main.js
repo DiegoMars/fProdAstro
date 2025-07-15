@@ -23,6 +23,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Add other scripts here, for example:
-  // nav toggle, animation triggers, etc.
+  //                                    //
+  //  Logic for research card flashers  //
+  //                                    //
+  const hash = window.location.hash;
+  if (hash) {
+    requestAnimationFrame(() => {
+      const safeId = hash.replace(/[^a-zA-Z0-9_-]/g, "-");
+      const target = document.getElementById(safeId.slice(1));
+      if (target) {
+        // Trigger flash slightly later
+        setTimeout(() => {
+          target.classList.add("flash");
+          setTimeout(() => target.classList.remove("flash"), 1000);
+        }, 600); // match scroll timing
+      }
+    });
+  }
 });

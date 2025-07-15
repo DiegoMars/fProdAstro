@@ -124,6 +124,20 @@ LinkedIn: www.linkedin.com/in/diego91342
 <!-- Global is needed here to make it global -->
 <style is:global>
 
+@keyframes flash {
+  0% { background-color: transparent; }
+  30% { background-color: #ffffff1a; }
+  60% { background-color: #ffffff33; }
+  100% { background-color: transparent; }
+}
+.flash {
+  animation: flash 0.8s ease-in-out;
+}
+
+:target {
+  scroll-margin-top: 0px; /* Prevent offset jumps */
+}
+
 /*                        */
 /* Real Time Colors Stuff */
 /*                        */
