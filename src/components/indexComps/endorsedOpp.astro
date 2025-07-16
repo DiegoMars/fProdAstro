@@ -1,10 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
+import HText from '../hText.astro';
 
 const Opps = await getCollection('opportunities');
 ---
 <section class="endorsedOpp">
-  <h3>Endorsed Opportunities</h3>
+  <HText text="Endorsed Opportunities"></HText>
   <div class="opps">
     {Opps.map(Opps => (
       <div class="card">

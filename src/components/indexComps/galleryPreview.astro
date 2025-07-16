@@ -1,5 +1,6 @@
 ---
 import type { ImageMetadata } from 'astro';
+import HText from '../hText.astro';
 
 const images = import.meta.glob<{ default: ImageMetadata }>('../../assets/imgs/gallery/*.{jpeg,jpg,png,gif}', {
   eager: true,
@@ -10,7 +11,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../../assets/imgs/g
 const shownImages = Object.values(images).slice(0, 5);
 ---
 <section class="gPreview">
-  <h3>Gallery</h3>
+  <HText text="Gallery"></HText>
   <div class="gallery">
     <!-- Ignore the src error for now -->
     {shownImages.map((img, i) => (
@@ -33,7 +34,7 @@ const shownImages = Object.values(images).slice(0, 5);
   padding: 2rem;
 }
 
-.gPreview > h3 {
+.gPreviewH {
   color: var(--text);
   text-align: center;
 }

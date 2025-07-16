@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import HText from '../hText.astro';
 const FResearch = await getCollection('farisaResearch');
 
 //shown research cards. Should work on ordering these by date in the future
@@ -25,8 +26,7 @@ const shownResearch = FResearch
   .sort((a, b) => b.dateObj.getTime() - a.dateObj.getTime()); // Newest first
 ---
 <section class="fFeatRes">
-  <h3 class="big">Featured Research</h3>
-  <h4 class="small">Featured Research</h4>
+  <HText text="Featured Research"></HText>
   <div class="carousel">
     {shownResearch.map(FResearch => (
       <a class="card" href={FResearch.url}>
@@ -57,14 +57,6 @@ const shownResearch = FResearch
 </section>
 
 <style>
-.big {
-  display: none;
-}
-
-.small {
-  display: block;
-}
-
 .fFeatRes {
   background-color: var(--accent);
   padding: 1.5rem;
@@ -177,14 +169,9 @@ const shownResearch = FResearch
     width: 400px;
   }
 }
-@media screen and (min-width: 780px){
-  .big {
-    display: block;
-  }
-  .small {
-    display: none;
-  }
-}
+/* @media screen and (min-width: 780px){ */
+/**/
+/* } */
 @media screen and (min-width: 1200px){
   .img > img {
     width: 100%;
