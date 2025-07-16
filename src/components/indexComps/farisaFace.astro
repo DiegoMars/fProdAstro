@@ -2,18 +2,8 @@
 import { Image } from 'astro:assets';
 
 import Stars from '../../assets/imgs/numbers.jpeg';
-import Pfp from '../../assets/imgs/pp.png';
-
-const dynamicCSS = `
-  @media screen and (min-width: 780px) {
-    .farisa {
-      background-image: url("${Stars.src}");
-    }
-    .face > img {
-      min-width: 250px;
-  }
-  }
-`;
+// import Pfp from '../../assets/imgs/pp.png';
+import Pfp from '../../assets/imgs/pfp.jpg'
 ---
 <section class="farisa">
   <div class="hText">
@@ -71,6 +61,8 @@ const dynamicCSS = `
   width: 100%;
   height: auto;
   max-width: 330px;
+  border: solid var(--text) 0.5rem;
+  border-radius: 50%;
 }
 
 @media screen and (min-width: 576px){ /* At sm breakpoint, apply styles */
@@ -86,13 +78,15 @@ const dynamicCSS = `
     margin: auto 0;
   }
 }
-/* @media screen and (min-width: 780px){ /* At md breakpoint, apply styles */ */
-/**/
-/* } */
-/* @media screen and (min-width: 1200px){ /* At xl breakpoint, apply styles */ */
+@media screen and (min-width: 780px) {
+  .farisa {
+    background-image: url('../../assets/imgs/numbers.jpeg');
+  }
+  .face > img {
+    min-width: 250px;
+  }
+}
+/* @media screen and (min-width: 1200px){ /* At xl breakpoint, apply styles */
 
 /* } */
 </style>
-
-<!-- Inject dynamic CSS with actual image URL -->
-<style set:html={dynamicCSS}></style>
