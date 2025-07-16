@@ -25,7 +25,8 @@ const shownResearch = FResearch
   .sort((a, b) => b.dateObj.getTime() - a.dateObj.getTime()); // Newest first
 ---
 <section class="fFeatRes">
-  <h3>Featured Research</h3>
+  <h3 class="big">Featured Research</h3>
+  <h4 class="small">Featured Research</h4>
   <div class="carousel">
     {shownResearch.map(FResearch => (
       <a class="card" href={FResearch.url}>
@@ -40,6 +41,7 @@ const shownResearch = FResearch
             <h5>{FResearch.data.title}</h5>
           </div>
           <div class="abstract">
+            <p><b>Published:</b> {FResearch.data.publicated}</p>
             <p>
               {FResearch.body}
             </p>
@@ -55,6 +57,14 @@ const shownResearch = FResearch
 </section>
 
 <style>
+.big {
+  display: none;
+}
+
+.small {
+  display: block;
+}
+
 .fFeatRes {
   background-color: var(--accent);
   padding: 1.5rem;
@@ -88,7 +98,8 @@ const shownResearch = FResearch
   flex-direction: column;
   gap: 0.5rem;
   justify-content: space-evenly;
-  width: 400px;
+  /* width: 400px; */
+  width: 280px;
   padding: 1rem;
   background-color: var(--secondary);
   border-radius: 10px;
@@ -106,7 +117,8 @@ const shownResearch = FResearch
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  width: 400px;
+  /* width: 400px; */
+  width: 280px;
   margin: 0 auto;
 }
 
@@ -119,6 +131,12 @@ const shownResearch = FResearch
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.abstract {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .abstract > p{
@@ -151,12 +169,22 @@ const shownResearch = FResearch
   padding-bottom: 0.5rem;
 }
 
-/* @media screen and (min-width: 576px){ /* At sm breakpoint, apply styles */
-
-/* } */
-/* @media screen and (min-width: 780px){ /* At md breakpoint, apply styles */
-
-/* } */
+@media screen and (min-width: 576px){
+  .card {
+    width: 400px;
+  }
+  .description {
+    width: 400px;
+  }
+}
+@media screen and (min-width: 780px){
+  .big {
+    display: block;
+  }
+  .small {
+    display: none;
+  }
+}
 @media screen and (min-width: 1200px){
   .img > img {
     width: 100%;
