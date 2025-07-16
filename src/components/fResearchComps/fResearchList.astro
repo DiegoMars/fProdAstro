@@ -51,15 +51,16 @@ for (const article of sortedArticles) {
   border-top: 1px solid var(--primary);
   padding-top: 1rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 .year-group > h4 {
   color: var(--primary);
-  width: 25%;
+  margin: 0 auto;
+  padding-bottom: 1rem;
 }
 
 .article {
-  width: 75%;
+  width: 100%;
   padding-bottom: 2rem;
 }
 .article > h5 {
@@ -75,5 +76,23 @@ for (const article of sortedArticles) {
   color: var(--primary-700)
 }
 
+@media screen and (min-width: 576px){
+  .year-group {
+    flex-direction: row;
+    padding-bottom: 0;
+  }
+  .year-group > h4 {
+    margin: 0;
+    width: 25%;
+  }
+  .article {
+    width: 75%;
+  }
+}
+/* @media screen and (min-width: 780px){ */
 
+/* } */
+/* @media screen and (min-width: 1200px){ */
+
+/* } */
 </style>
