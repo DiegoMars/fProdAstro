@@ -32,28 +32,69 @@ import FarisaLogo from "../assets/imgs/FarisaLogo.png"
       </a>
     </div>
   </container>
-  <container id="Pages">
-    <!-- Adding pages here -->
-    <div class="dropdown">
-      <p class="dropbtn">Research</p>
-      <div class="dropdown-content">
-        <a href="/farisaR">My Research</a>
-        <a href="/studentR">Student Research</a>
+  <container id="PagesBar">
+    <div id="Pages">
+      <!-- Adding pages here -->
+      <div class="dropdown">
+        <p class="dropbtn">Research</p>
+        <div class="dropdown-content">
+          <a href="/farisaR">My Research</a>
+          <a href="/studentR">Student Research</a>
+        </div>
+      </div>
+      <a href="/appearsOn" target="_self">
+        <p>Appears On</p>
+      </a>
+      <div class="dropdown">
+        <p class="dropbtn">Materials</p>
+        <div class="dropdown-content">
+          <a href="/internOpp">Internships</a>
+          <a href="#">Class Materials</a>
+        </div>
+      </div>
+      <a href="/gallery" target="_self">
+        <p>Gallery</p>
+      </a>
+    </div>
+    <div id="NavIcons">
+      <div id="NavSocials">
+        <div class="socials">
+          <a href="https://www.facebook.com/farisa.morales" target="_blank">
+            <img src="/imgs/icons/facebook.svg" alt="facebook logo">
+          </a>
+          <!-- <a href="https://www.x.com/FarisaMorales" target="_blank"> -->
+          <!--   <img src="/imgs/icons/x.svg" alt="x logo"> -->
+          <!-- </a> -->
+          <a href="https://www.linkedin.com/in/farisamorales/" target="_blank">
+            <img src="/imgs/icons/linkedin.svg" alt="linkedIn logo">
+          </a>
+          <a href="http://www.youtube.com/channel/UC-ml_bFgAHR7wXwsteE-A6g" target="_blank">
+            <img src="/imgs/icons/logo-youtube.svg" alt="youtube logo">
+          </a>
+        </div>
+      </div>
+      <div id="NavProf">
+        <div class="socials">
+          <a href="https://science.jpl.nasa.gov/people/morales/" class="prof" target="_blank">
+            <img src="/imgs/icons/nasa-logo.svg" alt="NASA logo">
+            <!-- <p>JPL</p> -->
+          </a>
+          <a href="https://orcid.org/0000-0001-9414-3851" class="prof" target="-blank">
+            <img src="/imgs/icons/orcid.org.svg" alt="ORCID logo">
+            <!-- <p>ORCID</p> -->
+          </a>
+          <a href="https://ui.adsabs.harvard.edu/search/p_=0&q=orcid%3A0000-0001-9415-3851&sort=date%20desc%2C%20bibcode%20desc"
+            class="prof" target="-blank">
+            <img src="/imgs/icons/ads.svg" alt="ADS logo">
+            <!-- <p>ADS</p> -->
+          </a>
+          <a href="https://www.researchgate.net/profile/Farisa-Morales" class="prof" target="-blank">
+            <img src="/imgs/icons/logo_ResearchGate.svg" alt="Research Gate logo">
+            <!-- <p>Research Gate</p> -->
+          </a>
+        </div>
       </div>
     </div>
-    <a href="/appearsOn" target="_self">
-      <p>Appears On</p>
-    </a>
-    <div class="dropdown">
-      <p class="dropbtn">Materials</p>
-      <div class="dropdown-content">
-        <a href="/internOpp">Internships</a>
-        <a href="#">Class Materials</a>
-      </div>
-    </div>
-    <a href="/gallery" target="_self">
-      <p>Gallery</p>
-    </a>
   </container>
 </nav>
 
@@ -141,10 +182,15 @@ import FarisaLogo from "../assets/imgs/FarisaLogo.png"
 }
 
 /* Pages */
+#PagesBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--accent);
+}
 #Pages {
   color: var(--text);
   font-weight: bold;
-  background-color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -198,6 +244,37 @@ import FarisaLogo from "../assets/imgs/FarisaLogo.png"
   display: block;
 }
 
+/* Social Icons */
+#NavIcons {
+  display: none;
+  flex-direction: row-reverse;
+  margin: auto 0;
+}
+.socials {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.socials img {
+  height: 23px;
+  display: flex;
+  align-items: center;
+  padding-right: 0.25rem;
+}
+.socials a {
+  padding-right: 0.75rem;
+  padding: 0.5rem 0.75rem 0.5rem 0;
+}
+.prof {
+  display: flex;
+  align-items: center;
+  color: var(--text);
+  text-decoration: none;
+}
+.prof > p{
+  margin: 0px;
+}
+
 /* Media queries */
 @media screen and (min-width: 576px){ /* At sm breakpoint, apply styles */
   #Pages {
@@ -213,6 +290,9 @@ import FarisaLogo from "../assets/imgs/FarisaLogo.png"
     display: flex;
   }
   .navRight {
+    display: flex;
+  }
+  #NavIcons {
     display: flex;
   }
 }
