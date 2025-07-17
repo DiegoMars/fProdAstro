@@ -14,7 +14,7 @@ const Opps = await getCollection('opportunities');
           <h5>{Opps.data.company}</h5>
         </div>
         <div class="main">
-          <img src={Opps.data.logo.url} alt={Opps.data.logo.alt} >
+          <img src={Opps.data.logo.url} alt={Opps.data.logo.alt} loading="lazy" >
           <div class="description">
             <p class="text">{Opps.body}</p>
             <p class="deadline"><b>Deadline: </b>{Opps.data.deadline}</p>
@@ -26,7 +26,7 @@ const Opps = await getCollection('opportunities');
       </div>
     ))}
     <a class="more" href="/internOpp">
-      <img src="imgs/icons/plus.svg">
+      <img src="imgs/icons/plus.svg" alt="more arrow" loading="lazy">
       <!-- <h5>See more</h5> -->
     </a>
   </div>
