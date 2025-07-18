@@ -1,11 +1,13 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 
 import Stars from '../../assets/imgs/numbers.jpeg';
-// import Pfp from '../../assets/imgs/pp.png';
-import Pfp from '../../assets/imgs/pfp.jpg'
+import Pfp from '../../assets/imgs/pfp.jpg';
+
+const optimizedImage = await getImage({ src: Stars });
+const backgroundUrl = `url(${optimizedImage.src})`;
 ---
-<section class="farisa">
+<section class="farisa" style={`--bg-url: ${backgroundUrl}`}}>
   <div class="hText">
     <div class="hTextB">
       <h4>Hello, I'm Farisa</h4>
@@ -81,7 +83,7 @@ import Pfp from '../../assets/imgs/pfp.jpg'
 }
 @media screen and (min-width: 780px) {
   .farisa {
-    background-image: url('../../assets/imgs/numbers.jpeg');
+    background-image: var(--bg-url);
   }
   .face > img {
     min-width: 250px;

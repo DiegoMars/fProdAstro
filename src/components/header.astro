@@ -1,22 +1,27 @@
 ---
+import { getImage } from 'astro:assets';
+import defaultImg from '../assets/imgs/staryBackground.jpg';
 
+const {
+  main="header",
+  sub="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  img=defaultImg
+} = Astro.props;
+
+const optimizedImage = await getImage({ src: img });
+const backgroundUrl = `url(${optimizedImage.src})`;
 ---
-<section class="galleryHeader">
+<section class="header" style={`--bg-url: ${backgroundUrl}`}>
   <div class="hText">
     <div class="hTextB">
-      <h4>Gallery<h4>
+      <h4>{main}<h4>
     </div>
-    <div class="hTextR">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.
-    </div>
+    <div class="hTextR">{sub}</div>
   </div>
 </section>
 
 <style>
-.galleryHeader {
+.header {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -48,8 +53,8 @@
 
 /* } */
 @media screen and (min-width: 780px) {
-  .galleryHeader {
-    background-image: url("../../assets/imgs/staryBackground.jpg");
+  .header {
+    background-image: var(--bg-url);
   }
 }
 /* @media screen and (min-width: 1200px){ /* At xl breakpoint, apply styles */
