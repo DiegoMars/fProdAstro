@@ -31,4 +31,19 @@ const farisaResearch = defineCollection({
   }),
 });
 
-export const collections = { opportunities, farisaResearch };
+const mediaFeatures = defineCollection({
+  loader: glob({ pattern: "*.md", base: "src/data/appearsOn"}),
+  schema: z.object({
+    title: z.string(),
+    type: z.enum(["Interview", "News Article", "Video", "Feature", "Podcast", "Other"]),
+    platform: z.string(),
+    date: z.string(),
+    url: z.string().url(),
+    thumbnail: z.object({
+      url: z.string().url(),
+      alt: z.string(),
+    }),
+  }),
+});
+
+export const collections = { opportunities, farisaResearch, mediaFeatures };
