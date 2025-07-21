@@ -4,6 +4,7 @@ company: NASA JPL
 logo:
     url: "imgs/icons/nasa-logo.svg"
     alt: "JPL Logo"
+date: false
 deadline: Year-round
 link: "https://www.jpl.nasa.gov/edu/internships/apply/jpl-summer-internship-program"
 ---

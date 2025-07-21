@@ -4,7 +4,8 @@ company: AI LA
 logo:
     url: "https://storage.tally.so/65aebcf9-8384-452c-bca5-22fffd834137/AI-LA-Splash.jpg"
     alt: "AI LA Logo"
-deadline: July 18, 2025
+date: true
+deadline: "2025-06-18"
 link: "https://forms.joinai.la/cohort6"
 ---
 Join the 6th cohort of AI LA’s IDEAS program—a competitive and free career accelerator designed to empower LA-based Community College students with the skills and connections to thrive in the evolving AI and STEAM industries.

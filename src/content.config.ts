@@ -10,6 +10,7 @@ const opportunities = defineCollection({
       url: z.string(),
       alt: z.string(),
     }),
+    date: z.boolean(),
     deadline: z.string(),
     link: z.string(),
   }),

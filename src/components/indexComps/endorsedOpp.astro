@@ -3,22 +3,48 @@ import { getCollection } from 'astro:content';
 import HText from '../hText.astro';
 
 const Opps = await getCollection('opportunities');
+const nonDatedOpps = Opps.filter((opportunity) => !opportunity.data.date);
+const datedOpps = Opps.filter((opportunity) => opportunity.data.date)
+  .map((opportunity) => ({
+    ...opportunity,
+    dateObj: new Date(opportunity.data.deadline),
+  }))                                                           // Add url and date object
+  .sort((a, b) => b.dateObj.getTime() - a.dateObj.getTime())    // Newest first
+  .filter((opportunity) => opportunity.dateObj >= new Date());  // Only keep upcoming
 ---
 <section class="endorsedOpp">
   <HText text="Endorsed Opportunities"></HText>
   <div class="opps">
-    {Opps.map(Opps => (
+    {nonDatedOpps.map(nonDatedOpps => (
       <div class="card">
         <div class="title">
-          <h4>{Opps.data.title}</h4>
-          <h5>{Opps.data.company}</h5>
+          <h4>{nonDatedOpps.data.title}</h4>
+          <h5>{nonDatedOpps.data.company}</h5>
         </div>
         <div class="main">
-          <img src={Opps.data.logo.url} alt={Opps.data.logo.alt} loading="lazy" >
+          <img src={nonDatedOpps.data.logo.url} alt={nonDatedOpps.data.logo.alt} loading="lazy" >
           <div class="description">
-            <p class="text">{Opps.body}</p>
-            <p class="deadline"><b>Deadline: </b>{Opps.data.deadline}</p>
-            <a href={Opps.data.link} target="_blank">
+            <p class="text">{nonDatedOpps.body}</p>
+            <p class="deadline"><b>Deadline: </b>{nonDatedOpps.data.deadline}</p>
+            <a href={nonDatedOpps.data.link} target="_blank">
+              <h5>See opportunity</h5>
+            </a>
+          </div>
+        </div>
+      </div>
+    ))}
+    {datedOpps.map(datedOpps => (
+      <div class="card">
+        <div class="title">
+          <h4>{datedOpps.data.title}</h4>
+          <h5>{datedOpps.data.company}</h5>
+        </div>
+        <div class="main">
+          <img src={datedOpps.data.logo.url} alt={datedOpps.data.logo.alt} loading="lazy" >
+          <div class="description">
+            <p class="text">{datedOpps.body}</p>
+            <p class="deadline"><b>Deadline: </b>{datedOpps.data.deadline}</p>
+            <a href={datedOpps.data.link} target="_blank">
               <h5>See opportunity</h5>
             </a>
           </div>
