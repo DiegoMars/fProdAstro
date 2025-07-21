@@ -1,3 +1,40 @@
 ---
+import { getCollection } from 'astro:content';
+import HText from '../hText.astro';
 
+const Opps = await getCollection('opportunities');
+const nonDatedOpps = Opps.filter((opportunity) => !opportunity.data.date);
+const datedOpps = Opps.filter((opportunity) => opportunity.data.date)
+  .map((opportunity) => ({
+    ...opportunity,
+    dateObj: new Date(opportunity.data.deadline),
+  }))                                                           // Add url and date object
+  .sort((a, b) => b.dateObj.getTime() - a.dateObj.getTime())    // Newest first
+const upcomingOpps = datedOpps.filter((opportunity) => opportunity.dateObj >= new Date());  // Only keep upcoming
+const passedOpps = datedOpps.filter((opportunity) => opportunity.dateObj < new Date());  // Only keep upcoming
 ---
+<section class="upcomingList">
+  <HText text="Upcoming Opportunities"></HText>
+</section>
+<section class="passedList">
+  <HText text="Passed Opportunities"></HText>
+</section>
+
+<style>
+.upcomingList {
+  background-color: var(--accent);
+  padding: 2rem;
+}
+
+.passedList {
+  background-color: var(--background);
+  padding: 2rem;
+}
+
+/* @media screen and (min-width: 576px){ */
+/* } */
+/* @media screen and (min-width: 780px){ */
+/* } */
+/* @media screen and (min-width: 1200px){ */
+/* } */
+</style>
