@@ -1,6 +1,83 @@
 ---
 import { getCollection } from 'astro:content';
-import HText from '../hText.astro';
 
 const AppearsOn = await getCollection('mediaFeatures');
+const OrderedFeat = AppearsOn
+  .map((media) => ({
+    ...media,
+    dateObj: new Date(media.data.date),
+  }))                                                         // Add date object
+  .sort((a, b) => b.dateObj.getTime() - a.dateObj.getTime()); // Newest first
+const typeColorMap = {
+  Video: "var(--accent-700)",
+  Article: "var(--primary)",
+  Podcast: "var(--secondary)",
+  Interview: "var(--accent-800)",
+};
 ---
+<section class="list">
+  {OrderedFeat.map(Feature => (
+    <a class="card" href={Feature.data.url} target="_blank">
+      <img
+        src={Feature.data.thumbnail.url}
+        alt={Feature.data.thumbnail.url}
+        class="img"
+      />
+      <div class="description">
+        <div class="title">
+          <p class="type" style={`background-color: ${typeColorMap[Feature.data.type as keyof typeof typeColorMap] || 'gray'}`}>{Feature.data.type}</p>
+          <h5>{Feature.data.title}</h5>
+        </div>
+        <p class="time">{Feature.data.platform} • {Feature.data.date}</p>
+      </div>
+    </a>
+  ))}
+</section>
+
+<style>
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  background-color: var(--secondary);
+  padding: 2rem;
+  gap: 1rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s;
+  color: var(--text);
+  text-decoration: none;
+  height: 100%;
+}
+
+.card:hover {
+  color: var(--primary);
+}
+
+.card:hover .type{
+  color: var(--text-900)
+}
+
+.img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--background);
+  padding: 1rem;
+  height: 100%;
+}
+
+.type{
+  display: inline-block;
+  margin: none;
+  padding: 0.5rem;
+}
+</style>

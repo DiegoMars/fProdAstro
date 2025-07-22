@@ -35,7 +35,7 @@ const mediaFeatures = defineCollection({
   loader: glob({ pattern: "*.md", base: "src/data/appearsOn"}),
   schema: z.object({
     title: z.string(),
-    type: z.enum(["Interview", "News Article", "Video", "Feature", "Podcast", "Other"]),
+    type: z.enum(["Interview", "Article", "Video", "Podcast", "Other"]),
     platform: z.string(),
     date: z.string(),
     url: z.string().url(),
