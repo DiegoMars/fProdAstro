@@ -189,6 +189,7 @@ import FarisaLogo from "../assets/imgs/FarisaLogo.png"
   background-color: var(--accent);
 }
 #Pages {
+  width: 100%;
   color: var(--text);
   font-weight: bold;
   display: flex;
@@ -286,6 +287,9 @@ import FarisaLogo from "../assets/imgs/FarisaLogo.png"
 }
 @media screen and (min-width: 780px){ /* At md breakpoint, apply styles */
   /* Basically, only show the rotating thing from md break point and on*/
+  #Pages {
+    width: auto;
+  }
   .rotate{
     display: flex;
   }
