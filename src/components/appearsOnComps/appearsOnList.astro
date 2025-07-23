@@ -14,6 +14,9 @@ const typeColorMap = {
   Podcast: "var(--secondary)",
   Interview: "var(--accent-800)",
 };
+const textColorMap = {
+  Article: "var(--text-900)",
+};
 ---
 <section class="list">
   {OrderedFeat.map(Feature => (
@@ -25,7 +28,14 @@ const typeColorMap = {
       />
       <div class="description">
         <div class="title">
-          <p class="type" style={`background-color: ${typeColorMap[Feature.data.type as keyof typeof typeColorMap] || 'gray'}`}>{Feature.data.type}</p>
+        <p
+          class="type"
+          style={`
+            --tag-bg: ${typeColorMap[Feature.data.type as keyof typeof typeColorMap] || 'gray'};
+            --tag-hover-color: ${textColorMap[Feature.data.type as keyof typeof textColorMap] || 'var(--primary)'};
+        `}>
+          {Feature.data.type}
+        </p>
           <h5>{Feature.data.title}</h5>
         </div>
         <p class="time">{Feature.data.platform} • {Feature.data.date}</p>
@@ -56,10 +66,6 @@ const typeColorMap = {
   color: var(--primary);
 }
 
-.card:hover .type{
-  color: var(--text-900)
-}
-
 .img {
   width: 100%;
   aspect-ratio: 16/9;
@@ -77,7 +83,12 @@ const typeColorMap = {
 
 .type{
   display: inline-block;
-  margin: none;
   padding: 0.5rem;
+  background-color: var(--tag-bg);
+  transition: 0.3s;
+}
+
+.card:hover .type{
+  color: var(--tag-hover-color);
 }
 </style>

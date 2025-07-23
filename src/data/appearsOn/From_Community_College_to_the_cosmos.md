@@ -5,6 +5,8 @@ title: "Farisa Morales: From Community College to the Cosmos"
 type: "Article"
 
 platform: "Moorpark College"
+
+# Synt
 date: "2020-02-10"
 url: "https://www.moorparkcollege.edu/news/farisa-morales-community-college-cosmos"
 thumbnail:
