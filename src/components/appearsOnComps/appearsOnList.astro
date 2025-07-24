@@ -50,7 +50,7 @@ const textColorMap = {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   background-color: var(--secondary);
   padding: 2rem;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .card {
@@ -60,6 +60,9 @@ const textColorMap = {
   color: var(--text);
   text-decoration: none;
   height: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 1rem;
+  overflow: hidden;
 }
 
 .card:hover {
@@ -84,6 +87,7 @@ const textColorMap = {
 .type{
   display: inline-block;
   padding: 0.5rem;
+  margin-top: 0.5rem;
   background-color: var(--tag-bg);
   transition: 0.3s;
 }
