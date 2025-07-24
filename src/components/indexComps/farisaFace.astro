@@ -108,8 +108,14 @@ const backgroundUrl = `url(${optimizedImage.src})`;
     z-index: 2; /* higher than the overlay */
     color: white; /* make sure content is visible */
   }
+  .hText {
+    background-color: var(--accent);
+    padding: 2rem;
+    border-radius: 1rem;
+  }
   .face > img {
     min-width: 250px;
+    border: solid var(--accent) 1rem;
   }
 }
 /* @media screen and (min-width: 1200px){ /* At xl breakpoint, apply styles */
