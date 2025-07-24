@@ -79,6 +79,7 @@ const datedOpps = Opps.filter((opportunity) => opportunity.data.date)
   flex-direction: column;
   background-color: var(--secondary);
   border-radius: 1rem;
+  overflow: hidden;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -169,6 +170,10 @@ const datedOpps = Opps.filter((opportunity) => opportunity.data.date)
 
 /* } */
 @media screen and (min-width: 780px){ /* At md breakpoint, apply styles */
+  .opps {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
   .title {
     flex-direction: row;
   }
