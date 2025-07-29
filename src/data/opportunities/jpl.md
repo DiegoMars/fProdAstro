@@ -2,7 +2,7 @@
 title: Summer Internship Program
 company: NASA JPL
 logo:
-    url: "imgs/icons/nasa-logo.svg"
+    url: "/imgs/icons/nasa-logo.svg"
     alt: "JPL Logo"
 date: false
 deadline: Year-round
