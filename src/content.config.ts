@@ -46,4 +46,19 @@ const mediaFeatures = defineCollection({
   }),
 });
 
-export const collections = { opportunities, farisaResearch, mediaFeatures };
+const studentResearch = defineCollection({
+  loader: glob({ pattern: "*.md", base: "src/data/studentResearch"}),
+  schema: z.object({
+    title: z.string(),
+    students: z.array(z.string()),
+    year: z.string(),
+    media: z.array(
+      z.object({
+        url: z.string(),
+        type: z.string(),
+      })
+    ),
+  }),
+});
+
+export const collections = { opportunities, farisaResearch, mediaFeatures, studentResearch };
