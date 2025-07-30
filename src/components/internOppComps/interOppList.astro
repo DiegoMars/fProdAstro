@@ -52,6 +52,11 @@ const passedOpps = datedOpps.filter((opportunity) => opportunity.dateObj < new D
         </div>
       </div>
     ))}
+    <a href="https://studentlaccd-my.sharepoint.com/:x:/g/personal/figuerca_laccd_edu/EdXe4l_z4D9Jk20Y2zJPVzgBDbl_Juhiy1ivLNtYStwj6Q"
+      target="_blank" class="more">
+      <h5>Check out this Database for more!</h5>
+      <img src="imgs/icons/arrowB.svg" alt="arrow">
+    </a>
   </div>
 </section>
 <section class="passedList">
@@ -177,6 +182,9 @@ const passedOpps = datedOpps.filter((opportunity) => opportunity.dateObj < new D
 }
 
 .more {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   padding: 1rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: var(--background);
@@ -192,8 +200,8 @@ const passedOpps = datedOpps.filter((opportunity) => opportunity.dateObj < new D
 }
 
 .more > img {
+  margin: 0 auto;
   width: 70px;
-  /* padding-bottom: 0.5rem; */
 }
 
 /* @media screen and (min-width: 576px){ */
@@ -232,6 +240,18 @@ const passedOpps = datedOpps.filter((opportunity) => opportunity.dateObj < new D
   .passed .card:hover {
     opacity: 1;
     filter: none;
+  }
+
+  .more {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .more > img {
+    margin: 0;
+    width: 50px;
+  }
+  .more h5 {
+    margin: auto 0;
   }
 }
 /* @media screen and (min-width: 1200px){ */
