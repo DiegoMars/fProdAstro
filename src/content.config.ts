@@ -65,11 +65,15 @@ const classes = defineCollection({
   loader: glob({ pattern: "*.md", base: "src/data/classes"}),
   schema: z.object({
     school: z.string(),
-    class: z.string(),
-    sections: z.array(
+    classes: z.array(
       z.object({
-        section: z.string(),
-        url: z.string(),
+        class: z.string(),
+        sections: z.array(
+          z.object({
+            section: z.string(),
+            url: z.string(),
+          })
+        )
       })
     ),
   })

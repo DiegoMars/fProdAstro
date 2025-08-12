@@ -6,40 +6,22 @@ console.log(Classes);
 ---
 <section class="classes">
   <HText text="Classes" class="htext"></HText>
-  {Classes.map(Class => (
+  {Classes.map((School) => (
     <div class="instance">
-      <div class="header">
-        <h4>{Class.data.school}</h4>
-        <h5>{Class.data.class}</h5>
-      </div>
-      <div class="sections">
-        {Class.data.sections.map(Section => (
-          <a href={Section.url}>{Section.section}</a>
-        ))}
-      </div>
+      <h4 class="school">{School.data.school}</h4>
+      {School.data.classes.map((Class) =>(
+        <div class="class">
+          <h5 class="name">{Class.class}</h5>
+          <div class="sections">
+            <p>Sections: </p>
+            {Class.sections.map((Section) => (
+              <a href={Section.url} class="section">{Section.section}</a>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   ))}
-
-  <!-- {Object.entries(articlesByYear) -->
-  <!--   .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA)) // descending -->
-  <!--   .map(([year, articles]) => ( -->
-  <!--   <div class="year-group"> -->
-  <!--     <h4>{year}</h4> -->
-  <!--       {articles.map((article) => ( -->
-  <!--         <div id={article.data.doi.replaceAll(/[^a-zA-Z0-9_-]/g, "-")} class="article"> -->
-  <!--           <h5>{article.data.title}</h5> -->
-  <!--           <p set:html={ -->
-  <!--             article.data.authors.replace( -->
-  <!--               /\b(Farisa(?:\s+Y\.?)?|F(?:\.?\s*)Y\.?)\s+Morales\b/gi, -->
-  <!--               '<strong style="color: var(--primary)">$&</strong>' -->
-  <!--             ) -->
-  <!--           }></p> -->
-  <!--           <p>DOI: <a href={article.url} target="_blank">{article.data.doi}</a></p> -->
-  <!--         </div> -->
-  <!--       ))} -->
-  <!--   </div> -->
-  <!-- ))} -->
-
 </section>
 
 <style>
@@ -48,27 +30,54 @@ console.log(Classes);
   padding: 2rem;
 }
 
-.header {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
+.instance {
+  background-color: var(--secondary);
+  margin: 1.5rem auto 0;
+  padding: 1rem;
+  max-width: 1100px;
+  border-radius: 1rem;
 }
 
-.header h4 {
+.school {
   color: var(--primary);
   margin: auto 0;
 }
 
-.header h5 {
+.class {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.name {
   color: var(--text);
   margin: auto 0;
-  padding-top: 2px;
 }
 
 .sections {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
+}
+
+.sections p {
+  color: var(--text);
+  margin: auto 0;
+}
+
+.section{
+  background-color: var(--primary);
+  text-decoration: none;
+  color: var(--text);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  transition: 0.3s;
+}
+
+
+.section:hover {
+  background-color: var(--primary-400);
 }
 /* @media screen and (min-width: 576px){ */
 /* } */
