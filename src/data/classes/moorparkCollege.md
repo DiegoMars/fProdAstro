@@ -1,7 +1,7 @@
 ---
 school: "Moorpark College"
 classes:
-    - class: "Astro M01"
+    - class: "Astro M01 - An Introduction to Astronomy"
       sections:
         - section: "78725"
           url: "https://vcccd.instructure.com/courses/78725"
