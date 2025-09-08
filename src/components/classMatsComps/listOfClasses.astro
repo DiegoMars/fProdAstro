@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import HText from '../hText.astro';
 const Classes = await getCollection('classes');
-console.log(Classes);
 ---
 <section class="classes">
   <HText text="Classes" class="htext"></HText>
