@@ -11,12 +11,6 @@ const Classes = await getCollection('classes');
       {School.data.classes.map((Class) =>(
         <div class="class">
           <h5 class="name">{Class.class}</h5>
-          <div class="sections">
-            <p>Sections: </p>
-            {Class.sections.map((Section) => (
-              <a href={Section.url} class="section">{Section.section}</a>
-            ))}
-          </div>
         </div>
       ))}
     </div>
@@ -52,31 +46,6 @@ const Classes = await getCollection('classes');
 .name {
   color: var(--text);
   margin: auto 0;
-}
-
-.sections {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-}
-
-.sections p {
-  color: var(--text);
-  margin: auto 0;
-}
-
-.section{
-  background-color: var(--primary);
-  text-decoration: none;
-  color: var(--text);
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  transition: 0.3s;
-}
-
-
-.section:hover {
-  background-color: var(--primary-400);
 }
 /* @media screen and (min-width: 576px){ */
 /* } */

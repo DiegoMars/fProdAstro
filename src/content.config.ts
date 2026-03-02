@@ -67,13 +67,7 @@ const classes = defineCollection({
     school: z.string(),
     classes: z.array(
       z.object({
-        class: z.string(),
-        sections: z.array(
-          z.object({
-            section: z.string(),
-            url: z.string(),
-          })
-        )
+        class: z.string()
       })
     ),
   })

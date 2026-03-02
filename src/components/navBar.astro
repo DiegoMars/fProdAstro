@@ -19,7 +19,7 @@ import FarisaLogo from "../assets/imgs/FarisaLogoB.png"
         <div class="words">
           <h5>Scientist</h5>
           <h5>Astronomer</h5>
-          <h5>Program Manager</h5>
+          <h5>Team Lead</h5> <!-- Need proper name for this -->
           <h5>Dean</h5>
           <h5>Instructor</h5>
           <h5>Scientist</h5>
@@ -49,7 +49,7 @@ import FarisaLogo from "../assets/imgs/FarisaLogoB.png"
         <p class="dropbtn">Materials</p>
         <div class="dropdown-content">
           <a href="/internOpp">Internships</a>
-          <a href="/classMaterials">Class Materials</a>
+          <a href="/classes">Classes</a>
         </div>
       </div>
       <a href="/gallery" target="_self">
@@ -59,17 +59,17 @@ import FarisaLogo from "../assets/imgs/FarisaLogoB.png"
     <div id="NavIcons">
       <div id="NavSocials">
         <div class="socials">
-          <a href="https://www.facebook.com/farisa.morales" target="_blank">
-            <img src="/imgs/icons/facebook.svg" alt="facebook logo">
-          </a>
-          <!-- <a href="https://www.x.com/FarisaMorales" target="_blank"> -->
-          <!--   <img src="/imgs/icons/x.svg" alt="x logo"> -->
-          <!-- </a> -->
           <a href="https://www.linkedin.com/in/farisamorales/" target="_blank">
             <img src="/imgs/icons/linkedin.svg" alt="linkedIn logo">
+            <!-- <p>LinkedIn</p> -->
+          </a>
+          <a href="https://www.facebook.com/farisa.morales" target="_blank">
+            <img src="/imgs/icons/facebook.svg" alt="facebook logo">
+            <!-- <p>Facebook</p> -->
           </a>
           <a href="http://www.youtube.com/channel/UC-ml_bFgAHR7wXwsteE-A6g" target="_blank">
             <img src="/imgs/icons/logo-youtube.svg" alt="youtube logo">
+            <!-- <p>Youtube</p> -->
           </a>
         </div>
       </div>
@@ -174,12 +174,20 @@ import FarisaLogo from "../assets/imgs/FarisaLogoB.png"
   background-color: var(--primary);
   padding: 0.5rem;
   border-radius: 1rem;
-  color: var(--text);
+  color: var(--accent);
+  border-style: solid;
+  border-color: var(--accent);
+  border-width: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   text-decoration: none;
   transition: 0.3s;
 }
 .button:hover {
-  background-color: var(--primary-400);
+  background-color: var(--secondary-600);
+  color: var(--accent);
+}
+.button > h5 {
+  font-weight: 700;
 }
 
 /* Pages */

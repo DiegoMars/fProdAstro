@@ -51,9 +51,9 @@ const datedOpps = Opps.filter((opportunity) => opportunity.data.date)
         </div>
       </div>
     ))}
-    <a class="more" href="/internOpp">
-      <img src="imgs/icons/plusB.svg" alt="more arrow" loading="lazy">
-      <!-- <h5>See more</h5> -->
+    <a href="/internOpp" class="more">
+      <h5>Check out more!</h5>
+      <img src="/imgs/icons/arrowB.svg" alt="arrow">
     </a>
   </div>
 <section>
@@ -63,7 +63,6 @@ const datedOpps = Opps.filter((opportunity) => opportunity.data.date)
 .endorsedOpp {
   background-color: var(--accent);
   color: var(--text);
-  text-align: center;
   padding: 2rem;
 }
 
@@ -113,20 +112,24 @@ const datedOpps = Opps.filter((opportunity) => opportunity.data.date)
 }
 
 .description {
+  display: flex;
+  flex-direction: column;
   margin: auto 0;
+  padding-left: 1rem;
+  text-align: left;
 }
 
 .description > p{
-  margin: 0.75rem;
+  margin: 0.75rem 0 0 0;
 }
 
 .description > a {
+  margin: 0.75rem 0 0 0;
   text-decoration: none;
 }
 
 .description > a > h5{
-  justify-self: center;
-  width: 80%;
+  text-align: center;
   padding: 1rem;
   color: var(--text);
   border-radius: 1rem;
@@ -147,6 +150,10 @@ const datedOpps = Opps.filter((opportunity) => opportunity.data.date)
 }
 
 .more {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   padding: 1rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: var(--background);
@@ -162,8 +169,8 @@ const datedOpps = Opps.filter((opportunity) => opportunity.data.date)
 }
 
 .more > img {
+  margin: 0 auto;
   width: 70px;
-  /* padding-bottom: 0.5rem; */
 }
 
 /* @media screen and (min-width: 576px){ /* At sm breakpoint, apply styles */
@@ -189,6 +196,17 @@ const datedOpps = Opps.filter((opportunity) => opportunity.data.date)
   }
   .text {
     display: block;
+  }
+  .more {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .more > img {
+    margin: 0;
+    width: 50px;
+  }
+  .more h5 {
+    margin: auto 0;
   }
 }
 /* @media screen and (min-width: 1200px){ /* At xl breakpoint, apply styles */

@@ -45,16 +45,19 @@ const OrderedR = Research.sort((a, b) => parseInt(b.data.year) - parseInt(a.data
 }
 
 .links a{
-  background-color: var(--primary);
+  background-color: var(--accent);
   text-decoration: none;
-  color: var(--text);
+  color: var(--primary);
+  border-style: solid;
+  border-color: var(--primary);
+  border-width: 3px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 0.5rem;
   padding: 0.5rem;
   transition: 0.3s;
 }
-
-
 .links a:hover {
-  background-color: var(--primary-400);
+  background-color: var(--accent-600);
+  color: var(--primary);
 }
 </style>
