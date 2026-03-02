@@ -174,12 +174,20 @@ import FarisaLogo from "../assets/imgs/FarisaLogoB.png"
   background-color: var(--primary);
   padding: 0.5rem;
   border-radius: 1rem;
-  color: var(--text);
+  color: var(--accent);
+  border-style: solid;
+  border-color: var(--accent);
+  border-width: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   text-decoration: none;
   transition: 0.3s;
 }
 .button:hover {
-  background-color: var(--primary-400);
+  background-color: var(--secondary-600);
+  color: var(--accent);
+}
+.button > h5 {
+  font-weight: 700;
 }
 
 /* Pages */
