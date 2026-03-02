@@ -94,7 +94,7 @@ const passedOpps = datedOpps.filter((opportunity) => opportunity.dateObj < new D
 
 .upcomingList, .passedList {
   color: var(--text);
-  text-align: center;
+  text-align: left;
   padding: 2rem;
 }
 
@@ -148,20 +148,24 @@ const passedOpps = datedOpps.filter((opportunity) => opportunity.dateObj < new D
 }
 
 .description {
+  display: flex;
+  flex-direction: column;
   margin: auto 0;
+  padding-left: 1rem;
+  text-align: left;
 }
 
 .description > p{
-  margin: 0.75rem;
+  margin: 0.75rem 0 0 0;
 }
 
 .description > a {
+  margin: 0.75rem 0 0 0;
   text-decoration: none;
 }
 
 .description > a > h5{
-  justify-self: center;
-  width: 80%;
+  text-align: center;
   padding: 1rem;
   color: var(--text);
   border-radius: 1rem;
@@ -182,6 +186,7 @@ const passedOpps = datedOpps.filter((opportunity) => opportunity.dateObj < new D
 }
 
 .more {
+  text-align: center;
   display: flex;
   flex-direction: column;
   gap: 1rem;
