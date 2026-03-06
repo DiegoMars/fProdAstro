@@ -38,7 +38,7 @@ const mediaFeatures = defineCollection({
     type: z.enum(["Interview", "Article", "Video", "Podcast", "Other"]),
     platform: z.string(),
     date: z.string(),
-    url: z.string().url(),
+    url: z.string(),
     thumbnail: z.object({
       url: z.string().url(),
       alt: z.string(),
